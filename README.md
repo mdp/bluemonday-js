@@ -1,7 +1,7 @@
-# BlueMonday-JS
+# bluemonday-js
 ![Travis status](https://travis-ci.org/mdp/bluemonday-js.svg)
 
-A golang -> javascript compiled version of the excellent [Bluemonday](https://github.com/microcosm-cc/bluemonday) HTML sanitizer
+A golang -> javascript compiled version of the excellent [bluemonday](https://github.com/microcosm-cc/bluemonday) HTML sanitizer
 
 ## Install
 
@@ -9,7 +9,7 @@ A golang -> javascript compiled version of the excellent [Bluemonday](https://gi
 
 ## Usage
 
-Works exactly like the golang version of Bluemonday
+Works exactly like the golang version of bluemonday
 
 ```
 var p = bluemonday.UGCPolicy()
@@ -22,7 +22,7 @@ var html = p.Sanitize(
 
 ## Credit
 
-All credit goes to [Bluemonday](https://github.com/microcosm-cc/bluemonday) and the [GopherJS](https://github.com/gopherjs/gopherjs) project for making this possible; I simply packaged it for npm.
+All credit goes to [bluemonday](https://github.com/microcosm-cc/bluemonday) and the [GopherJS](https://github.com/gopherjs/gopherjs) project for making this possible; I simply packaged it for npm.
 
 ## Turning GoLang code into an NPM module with GopherJS
 
@@ -53,7 +53,7 @@ func main() {
 
 Now on the JS side, when we require generate JS code, we'll be able to call `myFunc` just like you would expect.
 
-The next step is wrapping and returning a more complex type rather than just a `string`. In my case I want to expose Bluemonday's instance of the `Policy` struct to Javascript
+The next step is wrapping and returning a more complex type rather than just a `string`. In my case I want to expose bluemonday's instance of the `Policy` struct to Javascript
 
 ```go
 func UGCPolicy(name string) *js.Object {

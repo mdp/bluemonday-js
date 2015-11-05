@@ -1,6 +1,6 @@
 {
   "name": "bluemonday",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The bluemonday golang sanitizer, but made for JS with GopherJS",
   "main": "index.js",
   "scripts": {
