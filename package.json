@@ -4,8 +4,8 @@
   "description": "The bluemonday golang sanitizer, but made for JS with GopherJS",
   "main": "index.js",
   "scripts": {
-    "build": "gopherjs build go/main.go -m -o index.js; rm go/go",
-    "test": "mocha --compilers js:babel-core/register test/*_test.js"
+    "build": "gopherjs build go/main.go -m -o index.js",
+    "test": "npm run build; mocha --compilers js:babel-core/register test/*_test.js"
   },
   "repository": {
     "type": "git",
