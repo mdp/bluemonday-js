@@ -1,0 +1,28 @@
+{
+  "name": "bluemonday",
+  "version": "1.0.0",
+  "description": "The bluemonday golang sanitizer, but made for JS with GopherJS",
+  "main": "index.js",
+  "scripts": {
+    "build": "gopherjs build go/main.go -m -o index.js; rm go/go",
+    "test": "mocha --compilers js:babel-core/register test/*_test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/mdp/bluemonday-js"
+  },
+  "babel": {
+    "ignore": [
+      "index.js"
+    ]
+  },
+  "author": "mdp",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.0.20",
+    "benchmark": "^1.0.0",
+    "chai": "^3.4.0",
+    "marked": "^0.3.5",
+    "mocha": "^2.3.3"
+  }
+}
