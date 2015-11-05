@@ -65,7 +65,7 @@ func main() {
 }
 ```
 
-Here bluemonday will return the `*Policy` object when we call UGCPolcy, and we will then wrap it using Gopher's `MakeWrapper` function. 
+Here bluemonday will return the `*Policy` object when we call UGCPolicy, and we will then wrap it using Gopher's `MakeWrapper` function. 
 
 ### Build and Test process
 
@@ -97,7 +97,7 @@ describe('Basic markdown', function() {
 
 #### Travis CI
 
-This ones a little less obvious. We have a bit of a Frankenstein project here, we want to test the JS code, but we also would like Travis to build the JS code from our go code. We could include the compile JS in the repo, but I'd like to avoid that.
+This ones a little less obvious. We have a bit of a Frankenstein project here, we want to test the JS code, but we also would like Travis to build the JS code from our go code. We could include the compiled JS in the repo, but I'd like to avoid that.
 
 The requirements, then, are a test image capable of running go >= 1.5 and Node.js. In my experimenting with Travis we can only get this by asking for a 'go' container with version 1.5 and then manually installing Node.js via `nvm`.
 
@@ -117,7 +117,7 @@ install:
   - go get github.com/gopherjs/gopherjs
 ```
 
-This should all be fairly obvious. The next step is running the tests. In a 'go' project Travis expects either a Makefile, or it will run `go test` by default. In our case need a Makefile to kick off the mocha tests. It's pretty simple:
+This should all be fairly obvious. The next step is running the tests. In a 'go' project Travis will run `go test` unless there is a Makefile present, in which case it will simple run `make`. We will therefore need a Makefile to kick off the mocha tests. It's pretty simple:
 
 ```make
 all: test
