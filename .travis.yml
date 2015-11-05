@@ -7,4 +7,5 @@ before_script:
   - nvm install 5.0; npm install
 
 install:
+  - go get github.com/microcosm-cc/bluemonday
   - go get -u github.com/gopherjs/gopherjs
