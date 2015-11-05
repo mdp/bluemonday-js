@@ -1,4 +1,5 @@
 # BlueMonday-JS
+![Travis status](https://travis-ci.org/mdp/bluemonday-js.svg)
 
 A golang -> javascript compiled version of the excellent [Bluemonday](https://github.com/microcosm-cc/bluemonday) HTML sanitizer
 
