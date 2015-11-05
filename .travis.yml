@@ -4,4 +4,4 @@ node_js:
   - "5.0"
 
 before_script:
-  - go get -u github.com/gopherjs/gopherjs
+  - mkdir gopath; export GOPATH='./gopath'; go get -u github.com/gopherjs/gopherjs
