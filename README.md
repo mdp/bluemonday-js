@@ -130,6 +130,7 @@ test:
 ```
 
 I'm simply calling out to npm to run two scripts as part of the test. I have those script inside my package.json file as follows:
+
 1. `"build": "gopherjs build go/main.go -m -o index.js"`
 1. `"test": "mocha --compilers js:babel-core/register test/*_test.js"`
 
