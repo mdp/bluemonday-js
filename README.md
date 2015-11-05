@@ -114,7 +114,7 @@ before_script:
 
 install:
   - go get github.com/microcosm-cc/bluemonday
-  - go get -u github.com/gopherjs/gopherjs
+  - go get github.com/gopherjs/gopherjs
 ```
 
 This should all be fairly obvious. The next step is running the tests. In a 'go' project Travis expects either a Makefile, or it will run `go test` by default. In our case need a Makefile to kick off the mocha tests. It's pretty simple:

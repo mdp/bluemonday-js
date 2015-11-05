@@ -8,4 +8,4 @@ before_script:
 
 install:
   - go get github.com/microcosm-cc/bluemonday
-  - go get -u github.com/gopherjs/gopherjs
+  - go get github.com/gopherjs/gopherjs
