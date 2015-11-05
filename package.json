@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "gopherjs build go/main.go -m -o index.js",
-    "test": "npm run build; mocha --compilers js:babel-core/register test/*_test.js"
+    "test": "mocha --compilers js:babel-core/register test/*_test.js"
   },
   "repository": {
     "type": "git",
