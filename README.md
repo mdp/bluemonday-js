@@ -24,3 +24,5 @@ var html = p.Sanitize(
 All credit goes to [Bluemonday](https://github.com/microcosm-cc/bluemonday) and the [GopherJS](https://github.com/gopherjs/gopherjs) project for making this possible; I simply packaged it for npm.
 
 ## GopherJS
+
+More details about the gopher setup here
