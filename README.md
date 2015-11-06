@@ -26,7 +26,7 @@ All credit goes to [bluemonday](https://github.com/microcosm-cc/bluemonday) and 
 
 ----
 
-# Turning GoLang code into an NPM module with GopherJS
+# Turning GoLang code into an npm module with GopherJS
 
 Rather than write up a seperate blog post about this, I thought I'd just stick it into the repo to keep things simple.
 
@@ -34,7 +34,15 @@ See the code [here](https://github.com/mdp/bluemonday-js)
 
 ### Intro
 
-GopherJs compiles go to JavaScript and it works incredibly well for most projects. That being said, I didn't find any guides on how best to integrate that process into a modular JavaScript codebase. I built this project mostly as a demo of how to take go code and turn it into an NPM module that can be used in Node or a modern browser.
+GopherJs compiles go to JavaScript and it works incredibly well for most projects. That being said, I didn't find any guides on how best to integrate that process into a modular JavaScript codebase. I built this project mostly as a demo of how to take go code and turn it into an npm module that can be used in Node or a modern browser.
+
+My goals for this demonstration project are as follows:
+
+- Write go code that can be used from JavaScript
+- Package the code in an npm module
+- Write unit tests for the generate javascript code
+- Build and test the package using Travis
+- Deploy the package to npmjs.com's public repo
 
 ### Structure
 
@@ -79,7 +87,15 @@ func main() {
 }
 ```
 
-Here bluemonday will return the `*Policy` object when we call UGCPolicy, and we will then wrap it using Gopher's `MakeWrapper` function. 
+Here bluemonday will return the `*Policy` object when we call UGCPolicy, and we will then wrap it using Gopher's `MakeWrapper` function.
+
+Calling it from Node/Javaascript is then simply:
+
+```js
+let bluemonday = require('bluemonday')
+let p = bluemonday.UGCPolicy()
+let html = p.Sanitize('"<a onblur="alert(secret)" href="http://google.com">Dangerous Input</a>"')
+```
 
 ### Build and Test process
 
@@ -142,10 +158,22 @@ test:
 
 ```
 
-I'm simply calling out to npm to run two scripts as part of the test. I have those script inside my package.json file as follows:
+I'm simply calling out to the npm cli to run two scripts as part of the test. I have those script inside my package.json file as follows:
 
 1. `"build": "gopherjs build go/main.go -m -o index.js"`
 1. `"test": "mocha --compilers js:babel-core/register test/*_test.js"`
+
+### Deploying to npm
+
+There's plenty of articles on how to do this (Basically `npm publish`), so I'll just point out a one caveat.
+
+I use `.gitignore` to prevent our compiled JS code from ending up in source control. npm will therefore also ignore the compiled code when it packages up the module, so we will need to use a `.npmignore` file to negate this. In the `.npmignore` I'm also excluding our go source from getting packaged.
+
+```
+/go
+```
+
+Now we have the git repo ignoring our compiled JS, and the npm package including it but excluding the go source code from the distributed module.
 
 ### Conclusion
 
