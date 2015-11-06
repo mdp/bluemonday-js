@@ -24,6 +24,8 @@ var html = p.Sanitize(
 
 All credit goes to [bluemonday](https://github.com/microcosm-cc/bluemonday) and the [GopherJS](https://github.com/gopherjs/gopherjs) project for making this possible; I simply packaged it for npm.
 
+----
+
 # Turning GoLang code into an NPM module with GopherJS
 
 Rather than write up a seperate blog post about this, I thought I'd just stick it into the repo to keep things simple.
