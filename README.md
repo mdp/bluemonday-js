@@ -89,7 +89,7 @@ func main() {
 
 Here bluemonday will return the `*Policy` object when we call UGCPolicy, and we will then wrap it using Gopher's `MakeWrapper` function.
 
-Calling it from Node/Javaascript is then simply:
+Calling it from Node/JavaScript is then simply:
 
 ```js
 let bluemonday = require('bluemonday')
