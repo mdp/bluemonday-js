@@ -30,6 +30,8 @@ All credit goes to [bluemonday](https://github.com/microcosm-cc/bluemonday) and 
 
 Rather than write up a seperate blog post about this, I thought I'd just stick it into the repo to keep things simple.
 
+See the code [here](https://github.com/mdp/bluemonday-js)
+
 ### Intro
 
 GopherJs compiles go to JavaScript and it works incredibly well for most projects. That being said, I didn't find any guides on how best to integrate that process into a modular JavaScript codebase. I built this project mostly as a demo of how to take go code and turn it into an NPM module that can be used in Node or a modern browser.
@@ -50,7 +52,7 @@ GopherJs compiles go to JavaScript and it works incredibly well for most project
 
 ### The GoLang code
 
-In this project I'm simply wrapping the bluemonday library with the necessary code to expose it in JavaScript.
+In this project I'm simply wrapping the [bluemonday](https://github.com/microcosm-cc/bluemonday) HTML sanitizer library with the necessary code to expose it in JavaScript.
 
 Since this will become a CommonJS module, we need to 'export' the functions we want to expose, just like in JS land. GopherJS provides a way to get global objects, so it's just a matter of grabbing `exports` and setting the properties like so:
 
