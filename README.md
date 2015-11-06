@@ -40,7 +40,7 @@ My goals for this demonstration project are as follows:
 
 - Write go code that can be used from JavaScript
 - Package the code in an npm module
-- Write unit tests for the generate javascript code
+- Write unit tests for the generated javascript code
 - Build and test the package using Travis
 - Deploy the package to npmjs.com's public repo
 
@@ -73,7 +73,7 @@ func main() {
 }
 ```
 
-Now on the JS side, when we require the generated JS code, we'll be able to call `myFunc` just like you would expect.
+Now on the JS side, when we require the generated JS code, we'll be able to call `myGoFunc` just like you would expect.
 
 The next step is wrapping and returning a more complex type rather than just a `string`. In my case I want to expose bluemonday's instance of the `Policy` struct to Javascript
 
@@ -158,14 +158,14 @@ test:
 
 ```
 
-I'm simply calling out to the npm cli to run two scripts as part of the test. I have those script inside my package.json file as follows:
+I'm calling the npm cli to run two scripts as part of the test. I have those scripts inside my package.json file as follows:
 
 1. `"build": "gopherjs build go/main.go -m -o index.js"`
 1. `"test": "mocha --compilers js:babel-core/register test/*_test.js"`
 
 ### Deploying to npm
 
-There's plenty of articles on how to do this (Basically `npm publish`), so I'll just point out a one caveat.
+There are plenty of articles on how to do this (Basically `npm publish`), so I'll just point out a one caveat.
 
 I use `.gitignore` to prevent our compiled JS code from ending up in source control. npm will therefore also ignore the compiled code when it packages up the module, so we will need to use a `.npmignore` file to negate this. In the `.npmignore` I'm also excluding our go source from getting packaged.
 
@@ -177,4 +177,4 @@ Now we have the git repo ignoring our compiled JS, and the npm package including
 
 ### Conclusion
 
-This all works surprisingly well. The module we end up with can be consumed by anyone via NPM and the process is quite simple. I hope this helps anyone looking to do something similar. Feel free to file a pull request if you have anything to add.
+This all works surprisingly well. The module we end up with can be consumed by anyone via NPM and the process is farily easy once it's setup. I hope this helps anyone looking to do something similar. Feel free to file a pull request if you have anything to add.
